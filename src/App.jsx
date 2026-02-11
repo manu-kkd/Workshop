@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, ExternalLink, GitBranch, Server, Container, Code2, Wind, Cloud } from 'lucide-react';
+import { BookOpen, ExternalLink, GitBranch, Server, Container, Code2, Wind, Cloud, MessageCircle } from 'lucide-react';
 
 const workshops = [
   {
@@ -49,6 +49,14 @@ const workshops = [
     icon: Cloud,
     link: 'https://vercel.com/',
     color: 'from-gray-900 to-black'
+  },
+  {
+    id: 7,
+    title: 'Nehru Confessions',
+    description: 'Campus confessions platform for sharing anonymous thoughts and experiences',
+    icon: MessageCircle,
+    link: 'https://github.com/dazzal-david/campus-confessions',
+    color: 'from-pink-500 to-rose-500'
   }
 ];
 
