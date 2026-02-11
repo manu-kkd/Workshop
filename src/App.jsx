@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, ExternalLink, GitBranch, Server, Container, Code2, Wind } from 'lucide-react';
+import { BookOpen, ExternalLink, GitBranch, Server, Container, Code2, Wind, Cloud } from 'lucide-react';
 
 const workshops = [
   {
@@ -41,6 +41,14 @@ const workshops = [
     icon: Wind,
     link: 'https://www.anthropic.com/windsurf',
     color: 'from-purple-500 to-pink-500'
+  },
+  {
+    id: 6,
+    title: 'Vercel',
+    description: 'Platform for frontend frameworks and static sites with instant deployments',
+    icon: Cloud,
+    link: 'https://vercel.com/',
+    color: 'from-gray-900 to-black'
   }
 ];
 
