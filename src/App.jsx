@@ -92,7 +92,6 @@ function Header() {
     <header className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-center">
-          <BookOpen className="w-10 h-10 mr-4" />
           <div>
             <h1 className="text-4xl font-bold mb-2"><center>Syntista</center></h1>
             <p className="text-primary-100 text-lg">Explore our comprehensive collection of resources</p>
