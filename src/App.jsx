@@ -1,12 +1,12 @@
 import React from 'react';
-import { BookOpen, ExternalLink, GitBranch, Server, Container, Code2, Wind, Cloud, MessageCircle } from 'lucide-react';
+import { BookOpen, ExternalLink } from 'lucide-react';
 
 const workshops = [
   {
     id: 1,
     title: 'Git',
     description: 'Version control system for tracking changes in source code',
-    icon: GitBranch,
+    logo: '/logos/git.svg',
     link: 'https://git-scm.com/',
     color: 'from-orange-500 to-red-500'
   },
@@ -14,7 +14,7 @@ const workshops = [
     id: 2,
     title: 'Node.js',
     description: 'JavaScript runtime built on Chrome\'s V8 JavaScript engine',
-    icon: Server,
+    logo: '/logos/nodejs.svg',
     link: 'https://nodejs.org/',
     color: 'from-green-500 to-emerald-500'
   },
@@ -22,7 +22,7 @@ const workshops = [
     id: 3,
     title: 'Docker',
     description: 'Platform for developing, shipping, and running applications in containers',
-    icon: Container,
+    logo: '/logos/docker.svg',
     link: 'https://www.docker.com/',
     color: 'from-blue-500 to-cyan-500'
   },
@@ -30,7 +30,7 @@ const workshops = [
     id: 4,
     title: 'VS Code',
     description: 'Lightweight but powerful source code editor with built-in support for JavaScript',
-    icon: Code2,
+    logo: '/logos/vscode.svg',
     link: 'https://code.visualstudio.com/',
     color: 'from-blue-600 to-purple-600'
   },
@@ -38,7 +38,7 @@ const workshops = [
     id: 5,
     title: 'Windsurf',
     description: 'AI-powered IDE for modern development workflows',
-    icon: Wind,
+    logo: '/logos/windsurf.svg',
     link: 'https://www.anthropic.com/windsurf',
     color: 'from-purple-500 to-pink-500'
   },
@@ -46,7 +46,7 @@ const workshops = [
     id: 6,
     title: 'Vercel',
     description: 'Platform for frontend frameworks and static sites with instant deployments',
-    icon: Cloud,
+    logo: '/logos/vercel.svg',
     link: 'https://vercel.com/',
     color: 'from-gray-900 to-black'
   },
@@ -54,34 +54,32 @@ const workshops = [
     id: 7,
     title: 'Nehru Confessions',
     description: 'Campus confessions platform for sharing anonymous thoughts and experiences',
-    icon: MessageCircle,
+    logo: '/logos/nehru-confessions.svg',
     link: 'https://github.com/dazzal-david/campus-confessions',
     color: 'from-pink-500 to-rose-500'
   }
 ];
 
 function WorkshopCard({ workshop }) {
-  const Icon = workshop.icon;
-  
   return (
     <a 
       href={workshop.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:border-primary-200 group"
+      className="card-hover bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-xl group"
     >
-      <div className={`h-2 bg-gradient-to-r ${workshop.color}`}></div>
       <div className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className={`p-3 rounded-lg bg-gradient-to-r ${workshop.color} bg-opacity-10 group-hover:bg-opacity-20 transition-all duration-300`}>
-            <Icon className={`w-6 h-6 bg-gradient-to-r ${workshop.color} bg-clip-text text-transparent`} />
-          </div>
-          <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-primary-600 transition-colors duration-300" />
+        <div className="flex items-center justify-center mb-4">
+          <img 
+            src={workshop.logo} 
+            alt={`${workshop.title} logo`} 
+            className="w-12 h-12 object-contain"
+          />
         </div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-700 transition-colors duration-300">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center group-hover:text-primary-600 transition-colors duration-300">
           {workshop.title}
         </h3>
-        <p className="text-gray-600 text-sm leading-relaxed">
+        <p className="text-gray-600 text-sm leading-relaxed text-center">
           {workshop.description}
         </p>
       </div>
@@ -96,8 +94,8 @@ function Header() {
         <div className="flex items-center justify-center">
           <BookOpen className="w-10 h-10 mr-4" />
           <div>
-            <h1 className="text-4xl font-bold mb-2">Technical Workshop Documentation</h1>
-            <p className="text-primary-100 text-lg">Explore our comprehensive collection of technical workshops and resources</p>
+            <h1 className="text-4xl font-bold mb-2"><center>Syntista</center></h1>
+            <p className="text-primary-100 text-lg">Explore our comprehensive collection of resources</p>
           </div>
         </div>
       </div>
@@ -112,10 +110,7 @@ function App() {
       
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Workshop Topics</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Choose from our curated selection of technical workshops. Each topic includes comprehensive documentation and external resources to enhance your learning experience.
-          </p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Workshop Links</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -128,7 +123,7 @@ function App() {
       <footer className="bg-gray-900 text-white mt-16">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
-            <p className="text-gray-400">© 2024 Technical Workshop Documentation. Built with React and TailwindCSS.</p>
+            <p className="text-gray-400">© Syntista. All rights reserved.</p>
           </div>
         </div>
       </footer>
