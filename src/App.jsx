@@ -39,7 +39,7 @@ const workshops = [
     title: 'Windsurf',
     description: 'AI-powered IDE for modern development workflows',
     logo: '/logos/windsurf.svg',
-    link: 'https://www.anthropic.com/windsurf',
+    link: 'https://windsurf.com',
     color: 'from-purple-500 to-pink-500'
   },
   {
