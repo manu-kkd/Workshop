@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Simple placeholder logo for AI Resume Roaster -->
+  <rect width="100" height="100" fill="#00bcd4" />
+  <text x="50" y="55" font-size="14" fill="white" text-anchor="middle" font-family="Arial, sans-serif">
+    AI Resume
+  </text>
+  <text x="50" y="75" font-size="10" fill="white" text-anchor="middle" font-family="Arial, sans-serif">
+    Roaster
+  </text>
+</svg>
