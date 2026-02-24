@@ -62,5 +62,13 @@ export const workshops = [
     logo: '/logos/ai-resume-roaster.svg',
     link: 'https://github.com/dazzal-david/ai-resume-roaster',
     color: 'from-cyan-500 to-blue-500'
+  },
+  {
+    id: 9,
+    title: 'Open Router',
+    description: 'Open source alternative to OpenAI\'s API for LLMs',
+    logo: '/logos/open-router.svg',
+    link: 'https://openrouter.ai/',
+    color: 'from-purple-500 to-indigo-500'
   }
 ];
