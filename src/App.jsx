@@ -38,7 +38,19 @@ function WorkshopCard({ workshop }) {
 function Header() {
   return (
     <header className="relative z-10 pt-24 pb-16 px-4 text-center">
-      <div className="max-w-3xl mx-auto space-y-6">
+      <div className="max-w-3xl mx-auto space-y-6 flex flex-col items-center">
+        {/* Logo Container */}
+        <div className="relative mb-4 group cursor-pointer inline-block">
+          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-500"></div>
+          <div className="relative w-32 h-32 rounded-full p-1 bg-slate-900 overflow-hidden flex items-center justify-center border-2 border-slate-700/50 shadow-2xl">
+            <img
+              src="/Syntista.svg"
+              alt="Syntista Logo"
+              className="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+        </div>
+
         <div className="inline-block relative">
           <div className="absolute -inset-4 bg-primary-500/20 blur-3xl rounded-full opacity-50 animate-pulse"></div>
           <h1 className="relative text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 tracking-tight mb-6 pb-2 text-glow">
