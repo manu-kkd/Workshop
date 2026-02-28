@@ -4,12 +4,60 @@
 
 @layer base {
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+    @apply bg-slate-950 text-slate-100;
   }
 }
 
 @layer components {
-  .card-hover {
-    @apply transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl;
+
+  /* Glassmorphism styling */
+  .glass-panel {
+    @apply bg-slate-900/40 backdrop-blur-md border border-slate-700/50;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  /* Animated glowing border card */
+  .glow-card {
+    @apply relative overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .glow-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 pointer-events-none;
+  }
+
+  .glow-card:hover::before {
+    @apply opacity-20;
+  }
+
+  /* Animated background mesh blob */
+  .blob {
+    @apply absolute rounded-full mix-blend-screen filter opacity-30;
+    animation: blob 10s infinite alternate;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
   }
 }
