@@ -42,7 +42,7 @@ function Header() {
         {/* Logo Container */}
         <div className="relative mb-4 group cursor-pointer inline-block">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-500"></div>
-          <div className="relative w-32 h-32 rounded-full p-1 bg-slate-900 overflow-hidden flex items-center justify-center border-2 border-slate-700/50 shadow-2xl">
+          <div className="relative w-32 h-32 rounded-full p-1 bg-slate-50 overflow-hidden flex items-center justify-center border-2 border-white shadow-2xl">
             <img
               src="/Syntista.svg"
               alt="Syntista Logo"
