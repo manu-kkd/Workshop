@@ -50,11 +50,11 @@ function Header() {
   return (
     <header className="pt-16 pb-12 md:pt-24 md:pb-20 px-4">
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
-        <div className="mb-8 p-1.5 border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm bg-white dark:bg-zinc-900/50 inline-flex">
+        <div className="mb-6 inline-flex">
           <img
             src="/Intellect.png"
             alt="Intellect Studio Logo"
-            className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-full"
+            className="h-20 md:h-28 lg:h-32 w-auto object-contain drop-shadow-sm"
           />
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight mb-6">
