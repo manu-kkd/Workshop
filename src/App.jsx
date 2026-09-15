@@ -57,10 +57,7 @@ function Header() {
             className="h-20 md:h-28 lg:h-32 w-auto object-contain drop-shadow-sm"
           />
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight mb-6">
-          Intellect Studio
-        </h1>
-        <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed">
+        <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed mt-4">
           Explore our comprehensive collection of resources and premium developer tools.
         </p>
       </div>
