@@ -1,5 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { workshops } from './workshops';
+import { Sun, Moon, ArrowRight } from 'lucide-react';
+
+function ThemeToggle({ isDark, toggleTheme }) {
+  return (
+    <button
+      onClick={toggleTheme}
+      className="p-2 rounded-full hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors text-zinc-600 dark:text-zinc-400"
+      aria-label="Toggle theme"
+    >
+      {isDark ? <Sun size={20} /> : <Moon size={20} />}
+    </button>
+  );
+}
 
 function WorkshopCard({ workshop }) {
   return (
@@ -7,29 +20,27 @@ function WorkshopCard({ workshop }) {
       href={workshop.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="glow-card glass-panel p-8 flex flex-col items-center justify-center text-center group h-full"
+      className="minimal-card p-6 md:p-8 flex flex-col group h-full"
     >
-      {/* Background glowing gradient layer inside card */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${workshop.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-0`}></div>
-
-      {/* Blurred glowing aura outside card on hover */}
-      <div className={`absolute -inset-0.5 bg-gradient-to-br ${workshop.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-700 rounded-2xl -z-10`}></div>
-
-      <div className="relative z-10 flex flex-col items-center flex-grow">
-        <div className={`w-20 h-20 mb-6 rounded-2xl bg-slate-800/60 flex items-center justify-center p-4 border border-slate-700/50 group-hover:border-slate-500/50 transition-colors duration-500 shadow-inner group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] relative`}>
-          <div className={`absolute inset-0 bg-gradient-to-br ${workshop.color} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-500`}></div>
+      <div className="flex items-center space-x-4 mb-5">
+        <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center p-2.5 border border-zinc-100 dark:border-zinc-800/50 bg-zinc-50 dark:bg-zinc-900/50 shadow-sm shrink-0">
           <img
             src={workshop.logo}
             alt={`${workshop.title} logo`}
-            className="w-full h-full object-contain filter drop-shadow-lg z-10"
+            className="w-full h-full object-contain"
           />
         </div>
-        <h3 className="text-2xl font-bold text-slate-100 mb-4 group-hover:text-white transition-colors duration-300 tracking-tight">
+        <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {workshop.title}
         </h3>
-        <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300 mt-auto">
-          {workshop.description}
-        </p>
+      </div>
+      
+      <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed flex-grow">
+        {workshop.description}
+      </p>
+
+      <div className="mt-6 flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-all translate-y-1 group-hover:translate-y-0 duration-300">
+        Explore <ArrowRight className="ml-1.5 w-4 h-4" />
       </div>
     </a>
   );
@@ -37,27 +48,19 @@ function WorkshopCard({ workshop }) {
 
 function Header() {
   return (
-    <header className="relative z-10 pt-24 pb-16 px-4 text-center">
-      <div className="max-w-3xl mx-auto space-y-6 flex flex-col items-center">
-        {/* Logo Container */}
-        <div className="relative mb-4 group cursor-pointer inline-block">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-500"></div>
-          <div className="relative w-32 h-32 rounded-full p-1 bg-slate-50 overflow-hidden flex items-center justify-center border-2 border-white shadow-2xl">
-            <img
-              src="/Syntista.svg"
-              alt="Syntista Logo"
-              className="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110"
-            />
-          </div>
+    <header className="pt-16 pb-12 md:pt-24 md:pb-20 px-4">
+      <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
+        <div className="mb-8 p-1.5 border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm bg-white dark:bg-zinc-900/50 inline-flex">
+          <img
+            src="/Intellect.png"
+            alt="Intellect Studio Logo"
+            className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-full"
+          />
         </div>
-
-        <div className="inline-block relative">
-          <div className="absolute -inset-4 bg-primary-500/20 blur-3xl rounded-full opacity-50 animate-pulse"></div>
-          <h1 className="relative text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 tracking-tight mb-6 pb-2 text-glow">
-            Syntista
-          </h1>
-        </div>
-        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight mb-6">
+          Intellect Studio
+        </h1>
+        <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed">
           Explore our comprehensive collection of resources and premium developer tools.
         </p>
       </div>
@@ -65,43 +68,52 @@ function Header() {
   );
 }
 
-function BackgroundEffects() {
-  return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-indigo-600/20 blob" style={{ animationDelay: '0s' }}></div>
-      <div className="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] bg-purple-600/20 blob opacity-20" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute bottom-[-20%] left-[20%] w-[45rem] h-[45rem] bg-blue-600/20 blob opacity-20" style={{ animationDelay: '4s' }}></div>
-
-      {/* Optional grid pattern overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00MCAwaC0xTTEwIDBoLTFNMjAgMGgtMU0zMCAwaC0xTTQwIDEwaC0xTTEwIDEwaC0xTTIwIDEwaC0xTTMwIDEwaC0xTTQwPTIwaC0xTTEwIDIwaC0xTTIwIDIwaC0xTTMwIDIwaC0xTTQwIDMwaC0xTTEwIDMwaC0xTTIwIDMwaC0xTTMwIDMwaC0xTTQwIDQwaC0xTTEwIDQwaC0xTTIwIDQwaC0xTTMwIDQwaC0xTTAgMHYxTTAgMTB2MU0wPTIwdjFNMCAzMHYxTTAgNDB2MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiAvPgo8L3N2Zz4=')] opacity-20"></div>
-    </div>
-  );
-}
-
 function App() {
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme === 'dark';
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark(!isDark);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 relative selection:bg-primary-500/30 font-sans">
-      <BackgroundEffects />
+    <div className="min-h-screen flex flex-col font-sans selection:bg-blue-200 selection:text-blue-900 dark:selection:bg-blue-900/50 dark:selection:text-blue-100">
+      <nav className="w-full p-4 flex justify-end max-w-7xl mx-auto">
+        <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
+      </nav>
 
-      <div className="relative z-10 flex flex-col min-h-screen">
+      <main className="flex-grow container mx-auto px-4 max-w-5xl mb-24">
         <Header />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 auto-rows-fr">
+          {workshops.map((workshop) => (
+            <WorkshopCard key={workshop.id} workshop={workshop} />
+          ))}
+        </div>
+      </main>
 
-        <main className="flex-grow container mx-auto px-4 py-8 max-w-7xl mb-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
-            {workshops.map((workshop) => (
-              <WorkshopCard key={workshop.id} workshop={workshop} />
-            ))}
-          </div>
-        </main>
-
-        <footer className="relative z-10 py-8 border-t border-slate-800/50 bg-slate-900/40 backdrop-blur-md mt-auto">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-slate-500 text-sm font-medium tracking-wide">
-              © {new Date().getFullYear()} Syntista. All rights reserved.
-            </p>
-          </div>
-        </footer>
-      </div>
+      <footer className="py-10 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 mt-auto">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-zinc-500 dark:text-zinc-500 text-sm">
+            © {new Date().getFullYear()} Intellect Studio. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
